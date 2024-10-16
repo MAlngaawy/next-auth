@@ -1,16 +1,24 @@
 import React from 'react';
 import { Product } from '../types/general';
 import Image from 'next/image';
-
+import { useRouter } from 'next/navigation';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const router = useRouter();
+
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white h-full">
-      <Image className="w-full h-64 object-cover" width={500} height={500} src={product.image} alt={product.title} />
+      <Image
+        className="w-full h-64 object-cover"
+        width={300}
+        height={300}
+        src={product.image}
+        alt={product.title}
+      />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{product.title}</div>
         <p className="text-gray-700 text-base">{product.description}</p>
@@ -23,11 +31,23 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="flex items-center mt-2">
           <span className="text-yellow-400">⭐</span>
           <span className="ml-2 text-gray-600">{product.rating.rate} / 5</span>
-          <span className="ml-4 text-gray-600">{product.rating.count} reviews</span>
+          <span className="ml-4 text-gray-600">
+            {product.rating.count} reviews
+          </span>
         </div>
       </div>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          console.log('first');
+          router.push(`products/${product.id}`);
+        }}
+        className="bg-black p-4 text-white"
+      >
+        Go To
+      </button>
     </div>
   );
 };
 
-export default ProductCard
+export default ProductCard;

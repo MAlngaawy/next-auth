@@ -17,8 +17,8 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="flex items-stretch items-center justify-content-center gap-4 flex-wrap bg-white">
-      {data.map((item) => {
+    <div className="flex items-stretch justify-content-center gap-4 flex-wrap bg-white">
+      {data.map((item: Product) => {
         return (
           <div key={item.id}>
             <ProductCard product={item} />

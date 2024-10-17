@@ -6,12 +6,12 @@ import React from 'react';
 const SigninBtn = () => {
   return (
     <button
-      className="border-black border rounded-md p-4 "
+      className="rounded-md p-4 bg-green-500 text-white"
       onClick={() => {
         signIn();
       }}
     >
-      Please Signin
+      Signin
     </button>
   );
 };

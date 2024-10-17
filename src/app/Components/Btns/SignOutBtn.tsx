@@ -11,7 +11,7 @@ const SignOutBtn = () => {
         signOut();
       }}
     >
-      SignOut From Here
+      Log Out
     </button>
   );
 };

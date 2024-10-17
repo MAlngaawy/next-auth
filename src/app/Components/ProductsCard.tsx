@@ -1,15 +1,13 @@
 import React from 'react';
 import { Product } from '../types/general';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const router = useRouter();
-
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white h-full">
       <Image
@@ -36,16 +34,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </span>
         </div>
       </div>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          console.log('first');
-          router.push(`products/${product.id}`);
-        }}
-        className="bg-black p-4 text-white"
-      >
-        Go To
-      </button>
+      <Link href={`products/${product.id}`} className="bg-black p-4 text-white">
+        Details
+      </Link>
     </div>
   );
 };

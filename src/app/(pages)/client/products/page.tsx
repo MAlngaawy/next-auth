@@ -2,6 +2,7 @@
 
 import ProductCard from '@/app/Components/ProductsCard';
 import { Product } from '@/app/types/general';
+import { SessionProvider } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
 const productsData = async () => {
@@ -17,15 +18,17 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="flex items-stretch justify-content-center gap-4 flex-wrap bg-white">
-      {data.map((item: Product) => {
-        return (
-          <div key={item.id}>
-            <ProductCard product={item} />
-          </div>
-        );
-      })}
-    </div>
+    <SessionProvider>
+      <div className="flex items-stretch justify-content-center gap-4 flex-wrap bg-white">
+        {data.map((item: Product) => {
+          return (
+            <div key={item.id}>
+              <ProductCard product={item} />
+            </div>
+          );
+        })}
+      </div>
+    </SessionProvider>
   );
 };
 

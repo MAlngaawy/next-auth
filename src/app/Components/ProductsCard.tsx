@@ -9,7 +9,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white h-full">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg p-4 bg-white h-full flex flex-col gap-2 justify-between">
       <Image
         className="w-full h-64 object-cover"
         width={300}

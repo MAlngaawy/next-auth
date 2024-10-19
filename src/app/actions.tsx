@@ -1,5 +1,5 @@
 'use server';
-import { revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 
 export const create = (formData: FormData) => {
   // Convert FormData to JSON object
@@ -22,6 +22,5 @@ export const create = (formData: FormData) => {
     .catch((err) => {
       console.error('Error:', err); // Handle any errors
     });
-
-  revalidateTag('/products');
+  revalidatePath('/', 'layout');
 };

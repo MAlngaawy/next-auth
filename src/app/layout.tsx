@@ -6,6 +6,7 @@ import '@mantine/notifications/styles.css';
 // import '@mantine/modals/styles.css';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import Link from 'next/link';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -38,6 +39,7 @@ export default function RootLayout({
       >
         <MantineProvider>
           <Notifications />
+          <Link href={'/'}>HomePage</Link>
           {children}
         </MantineProvider>
       </body>

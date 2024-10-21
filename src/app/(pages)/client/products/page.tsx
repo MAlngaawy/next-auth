@@ -1,5 +1,6 @@
 'use client';
 
+import ClientComponent from '@/app/Components/ClientComponent';
 import ProductCard from '@/app/Components/ProductsCard';
 import { Product } from '@/app/types/general';
 import { SessionProvider } from 'next-auth/react';
@@ -19,6 +20,7 @@ const Products = () => {
 
   return (
     <SessionProvider>
+      <ClientComponent />
       <div className="flex items-stretch justify-content-center gap-4 flex-wrap bg-white">
         {data.map((item: Product) => {
           return (

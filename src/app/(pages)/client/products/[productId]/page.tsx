@@ -1,9 +1,16 @@
+'use client';
+import { Product } from '@/app/types/general';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-const ProductPage = async ({ params }: { params: { productId: string } }) => {
-  const product = await fetch(
-    `https://fakestoreapi.com/products/${params.productId}`
-  ).then((res) => res.json());
+const ProductPage = ({ params }: { params: { productId: string } }) => {
+  const [product, setProduct] = useState<Product | null>(null);
+
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${params.productId}`)
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  }, [params.productId]);
 
   return (
     <div className="max-w-4xl mx-auto my-8 p-4 bg-white shadow-lg rounded-lg">
@@ -14,35 +21,35 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
             className="w-full h-64 object-cover"
             width={300}
             height={300}
-            src={product.image}
-            alt={product.title}
+            src={product?.image || ''}
+            alt={product?.title || ''}
           />
         </div>
 
         {/* Product Details */}
         <div className="flex-1 mt-4 md:mt-0 md:ml-6">
           {/* Title and Rating */}
-          <h2 className="text-2xl font-bold text-gray-800">{product.title}</h2>
+          <h2 className="text-2xl font-bold text-gray-800">{product?.title}</h2>
           <div className="flex items-center mt-2">
             <span className="text-yellow-500">⭐</span>
             <span className="ml-2 text-gray-600">
-              {product.rating.rate} / 5
+              {product?.rating.rate} / 5
             </span>
             <span className="ml-4 text-gray-600">
-              {product.rating.count} reviews
+              {product?.rating.count} reviews
             </span>
           </div>
 
           {/* Price and Category */}
           <div className="mt-4">
             <p className="text-3xl font-semibold text-green-600">
-              EGP {product.price.toFixed(2)}
+              EGP {product?.price.toFixed(2)}
             </p>
-            <p className="text-sm text-gray-500 mt-1">{product.category}</p>
+            <p className="text-sm text-gray-500 mt-1">{product?.category}</p>
           </div>
 
           {/* Description */}
-          <p className="text-gray-700 mt-4">{product.description}</p>
+          <p className="text-gray-700 mt-4">{product?.description}</p>
 
           {/* Add to Cart and Buy Now */}
           <div className="mt-6 flex space-x-4">

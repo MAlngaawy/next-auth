@@ -41,12 +41,11 @@ export const authOptions = {
     }),
   ],
   //? Callbacks
-  // callbacks: {
-  //   async signIn({ user, account, profile, email, credentials }) {
-  //     return true;
-  //   },
-  //   async session({ session, user, token }) {
-  //     return session;
-  //   },
-  // },
+  callbacks: {
+    async session({ session, token }: any) {
+      console.log('tokens', token);
+      session.test = token.jti;
+      return session;
+    },
+  },
 };

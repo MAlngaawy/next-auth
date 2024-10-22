@@ -1,14 +1,11 @@
-// // middleware.ts
-// import { withAuth } from 'next-auth/middleware';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
+import { default as nextAuthDefault } from 'next-auth/middleware';
 
-// // Protect all routes under "/dashboard" and "/profile"
-// export default withAuth({
-//   pages: {
-//     signIn: '/api/auth/signin', // Redirect to sign-in page if unauthenticated
-//   },
-// });
-export { default } from 'next-auth/middleware';
+export default createMiddleware(routing);
+export { nextAuthDefault };
 
 export const config = {
-  matcher: ['/server/:path*', '/profile/:path*'], // Protect these routes
+  // Match only internationalized pathnames
+  matcher: ['/', '/(ar|en)/:path*'],
 };

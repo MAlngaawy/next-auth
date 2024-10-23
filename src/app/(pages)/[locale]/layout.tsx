@@ -9,7 +9,7 @@ import { Notifications } from '@mantine/notifications';
 import { Link, routing } from '@/i18n/routing';
 import SwitchLangBtn from '../../Components/Btns/SwitchLangBtn';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getLocale, getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 const geistSans = localFont({
@@ -43,9 +43,10 @@ export default async function RootLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
+  const local = await getLocale();
 
   return (
-    <html lang="en">
+    <html lang={local} dir={local === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         <ColorSchemeScript />
       </head>
@@ -55,15 +56,15 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <MantineProvider>
             <Notifications />
-            <SwitchLangBtn />
-
-            <Link
-              className="w-full my-4 mx-auto text-3xl block text-center text-blue-500 hover:underline"
-              href={'/'}
-            >
-              HomePage
-            </Link>
-
+            <div className="flex justify-around items-center">
+              <SwitchLangBtn />
+              <Link
+                className=" my-4 text-3xl block text-center text-blue-500 hover:underline"
+                href={'/'}
+              >
+                HomePage
+              </Link>
+            </div>
             {children}
           </MantineProvider>
         </NextIntlClientProvider>

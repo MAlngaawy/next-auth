@@ -6,10 +6,15 @@ import { useLocale } from 'next-intl';
 const SwitchLangBtn = () => {
   const pathname = usePathname();
   const local = useLocale();
+  const otherLang = local === 'en' ? 'ar' : 'en';
 
   return (
-    <Link href={pathname} locale={local === 'en' ? 'ar' : 'en'}>
-      Switch
+    <Link
+      className="p-2 bg-blue-400 rounded-lg text-white font-bold text-lg"
+      href={pathname}
+      locale={otherLang}
+    >
+      {otherLang.toUpperCase()}
     </Link>
   );
 };

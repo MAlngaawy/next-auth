@@ -1,7 +1,13 @@
 {
   "HomePage": {
-    "title": "Hello world!",
+    "title": "Welcome",
     "about": "Go to the about page",
-    "forTest": "This is for test"
+    "forTest": "This is for test",
+    "home": "Home",
+    "clientProducts": "Client Products",
+    "serverProducts": "Server Products",
+    "logout": "Log Out",
+    "needToSignIn": "You Need To Signin",
+    "signIn": "Sign In"
   }
 }

@@ -1,7 +1,13 @@
 {
   "HomePage": {
-    "title": " يلا بينا تيتل !",
+    "title": "أهلا بيك",
     "about": "تيست أبوت",
-    "forTest": "تيست يا مان"
+    "forTest": "تيست يا مان",
+    "home": "الرئيسية",
+    "clientProducts": "منتجات ع الكلاينت",
+    "serverProducts": "منتجات ع السيرفر",
+    "logout": "تسجيل الخروج",
+    "needToSignIn": "عليك تسجيل الدخول",
+    "signIn": "تسجيل الدخول"
   }
 }

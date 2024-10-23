@@ -9,7 +9,7 @@ import { Notifications } from '@mantine/notifications';
 import { Link, routing } from '@/i18n/routing';
 import SwitchLangBtn from '../../Components/Btns/SwitchLangBtn';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 
 const geistSans = localFont({
@@ -35,6 +35,8 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }>) {
+  const t = await getTranslations('HomePage');
+
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
@@ -62,7 +64,7 @@ export default async function RootLayout({
                 className=" my-4 text-3xl block text-center text-blue-500 hover:underline"
                 href={'/'}
               >
-                HomePage
+                {t('home')}
               </Link>
             </div>
             {children}

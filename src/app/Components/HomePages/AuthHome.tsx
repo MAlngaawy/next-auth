@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 import SignOutBtn from '../Btns/SignOutBtn';
 
 const AuthHome = () => {
@@ -8,13 +8,13 @@ const AuthHome = () => {
       <div className="flex gap-5">
         <Link
           className="border-black border rounded-md p-4 hover:text-black hover:bg-white"
-          href={'client/products'}
+          href={'/client/products'}
         >
           Client Products
         </Link>
         <Link
           className="border-black border rounded-md p-4 hover:text-black hover:bg-white"
-          href={'server/products'}
+          href={'/server/products'}
         >
           Server Products
         </Link>

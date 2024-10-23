@@ -1,9 +1,9 @@
 'use client';
 
-import ClientComponent from '@/app/Components/ClientComponent';
 import ProductCard from '@/app/Components/ProductsCard';
 import { Product } from '@/app/types/general';
 import { SessionProvider } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 const productsData = async () => {
@@ -13,6 +13,7 @@ const productsData = async () => {
 
 const Products = () => {
   const [data, setData] = useState<Product[]>([]);
+  const t = useTranslations('HomePage');
 
   useEffect(() => {
     productsData().then((res) => setData(res));
@@ -20,7 +21,7 @@ const Products = () => {
 
   return (
     <SessionProvider>
-      <ClientComponent />
+      <h1 className="text-4xl">{t('forTest')}</h1>
       <div className="flex items-stretch justify-content-center gap-4 flex-wrap bg-white">
         {data.map((item: Product) => {
           return (

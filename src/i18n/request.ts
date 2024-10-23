@@ -1,7 +1,6 @@
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 
-//todo fix Type error
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
   let locale = await requestLocale;
@@ -16,5 +15,3 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });
-
-//? access pay

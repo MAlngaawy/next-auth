@@ -6,5 +6,9 @@ import { authOptions } from '../../api/auth/[...nextauth]/options';
 export default async function Home() {
   const session = await getServerSession(authOptions);
 
-  return <>{session ? <AuthHome /> : <UnAuthHome />}</>;
+  return (
+    <div>
+      <div>{session ? <AuthHome /> : <UnAuthHome />}</div>
+    </div>
+  );
 }

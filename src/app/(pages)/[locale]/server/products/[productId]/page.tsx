@@ -5,6 +5,8 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
     `https://fakestoreapi.com/products/${params.productId}`
   ).then((res) => res.json());
 
+  //? untill now it's SSG
+
   return (
     <div className="max-w-4xl mx-auto my-8 p-4 bg-white shadow-lg rounded-lg">
       <div className="flex flex-col md:flex-row">
@@ -71,3 +73,9 @@ const ProductPage = async ({ params }: { params: { productId: string } }) => {
 };
 
 export default ProductPage;
+
+// //? now it's ISR
+// export const revalidate = 60; // Re-generate the page every 60 seconds
+
+// //? now it's SSR
+// export const dynamic = 'force-dynamic'; // Force SSR on this page

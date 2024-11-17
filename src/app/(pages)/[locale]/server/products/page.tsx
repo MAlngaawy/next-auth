@@ -4,11 +4,9 @@ import { Product } from '@/app/types/general';
 import { getTranslations } from 'next-intl/server';
 
 const Serverpage = async () => {
-  const data = await fetch('https://fakestoreapi.com/products', {
-    next: {
-      tags: ['products'],
-    },
-  }).then((res) => res.json());
+  const data = await fetch('https://fakestoreapi.com/products').then((res) =>
+    res.json()
+  );
 
   const t = await getTranslations('HomePage');
 

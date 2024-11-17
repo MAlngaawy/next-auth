@@ -6,7 +6,7 @@ import '@mantine/notifications/styles.css';
 // import '@mantine/modals/styles.css';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { Link, routing } from '@/i18n/routing';
+import { Link, routing } from '@/app/i18n/routing';
 import SwitchLangBtn from '../../Components/Btns/SwitchLangBtn';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';

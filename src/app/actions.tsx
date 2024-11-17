@@ -34,9 +34,9 @@ export const create = (formData: FormData) => {
       body: JSON.stringify(formDataObj), // Convert formDataObj to JSON string
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log('DATAAAA', data);
-      })
+      // .then((data) => {
+      //   console.log('DATAAAA', data);
+      // })
       .catch((err) => {
         console.error('Error:', err); // Handle any errors
       });

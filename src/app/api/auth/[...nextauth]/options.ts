@@ -43,7 +43,7 @@ export const authOptions = {
   //? Callbacks
   callbacks: {
     async session({ session, token }: any) {
-      console.log('tokens', token);
+      // console.log('tokens', token);
       session.test = token.jti;
       return session;
     },

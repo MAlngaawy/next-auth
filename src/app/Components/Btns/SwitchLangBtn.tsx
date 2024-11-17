@@ -1,6 +1,6 @@
 'use client';
 
-import { Link, usePathname } from '@/i18n/routing';
+import { Link, usePathname } from '@/app/i18n/routing';
 import { useLocale } from 'next-intl';
 
 const SwitchLangBtn = () => {

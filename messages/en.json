@@ -8,6 +8,7 @@
     "serverProducts": "Server Products",
     "logout": "Log Out",
     "needToSignIn": "You Need To Signin",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "vs_code_test": "VS Code Test"
   }
 }
